@@ -93,9 +93,16 @@ Ambos corresponden a la versión 2.35.4 de Drift y se descargaron de
 <https://github.com/simolus3/drift/releases/tag/drift-2.35.4>. Al actualizar
 `drift` hay que reemplazarlos por los de la versión correspondiente.
 
-El servidor de evidencias envía `Cross-Origin-Opener-Policy: same-origin` y
-`Cross-Origin-Embedder-Policy: require-corp` para habilitar OPFS. Sin esas
-cabeceras Drift usa IndexedDB como respaldo y la persistencia sigue funcionando.
+Para probar la compilación release con las cabeceras que habilitan OPFS:
+
+```bash
+flutter build web --release
+node tool/serve_web.js   # http://127.0.0.1:8080
+```
+
+El servidor envía `Cross-Origin-Opener-Policy: same-origin` y
+`Cross-Origin-Embedder-Policy: require-corp`. Sin esas cabeceras Drift usa
+IndexedDB como respaldo y la persistencia sigue funcionando.
 
 ### ¿Dónde se guardan los datos?
 
